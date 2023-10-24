@@ -1,0 +1,22 @@
+name: ganbuxiao
+
+on:
+  push:
+    branches:
+     - 'v[0-9]+.[0-9]+'
+
+jobs: workshop
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'      
+          format: 'table'
+          output: 'trivy-results.txt'
+          severity: 'high'
