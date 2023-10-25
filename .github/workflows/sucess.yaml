@@ -1,0 +1,33 @@
+name: ganbuxiao
+
+on:
+  push:
+    branches:
+     - 'v[0-9]+.[0-9]+'
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Trivy vulnerability scanner in repo mode
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        ignore-unfixed: true
+        format: 'table'
+        output: 'trivy-results.txt'
+        severity: 'CRITICAL'
+  
+      
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_MESSAGE: |
+                Name : WuYuLong
+                Email : e1221768@u.nus.edu
+
