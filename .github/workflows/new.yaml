@@ -20,13 +20,16 @@ jobs:
         ignore-unfixed: true
         format: 'table'
         output: 'trivy-results.txt'
-        severity: 'CRITICAL'
+        severity: 'HIGH'
   
       
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_TITLE: Scan failed -ganbuxiao
+            SLACK_MESSAGE: Failed trivy scan, see uploaded report
+               
 
     - name: send report       
       uses: MeilCli/slack-upload-file@v3
@@ -36,5 +39,8 @@ jobs:
         file_type: 'text'
         file_name: 'trivy-results.txt'
         initial_comment: 'Scan report by ganbuxiao'
+
+    
+  
       
     
