@@ -31,6 +31,7 @@ jobs:
                 Name : WuYuLong
                 Metriculation: A0285956H
                 Email : e1221768@u.nus.edu
+                Git:
 
 
     - name: Set up QEMU
