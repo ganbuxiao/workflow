@@ -46,9 +46,10 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        dockerfile: ./Desktop/text/fortunes/Dockerfile
         push: true
-        tags: jifenzhongzhiidingli/ganbuxiao:${{github.event.head_commit}}
+        tags: jifenzhongzhiidingli/text:${{github.event.head_commit}}
+
+        
         
 
 
