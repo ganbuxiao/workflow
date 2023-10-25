@@ -31,7 +31,6 @@ jobs:
                 Name : WuYuLong
                 Metriculation: A0285956H
                 Email : e1221768@u.nus.edu
-                Git : https://github.com/ganbuxiao/workflow.git
 
 
     - name: Set up QEMU
