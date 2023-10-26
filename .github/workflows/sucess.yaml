@@ -31,7 +31,7 @@ jobs:
                 Name : WuYuLong
                 Metriculation: A0285956H
                 Email : e1221768@u.nus.edu
-                Git: https://github.com/${{ github.repository.owner }}/${{ github.repository.repo }}
+                Git: https://github.com/${{ github.repository }}
                 Docker Hub : https://hub.docker.com/repository/docker/jifenzhongzhiidingli/text/general
 
     - name: Set up QEMU
@@ -66,6 +66,8 @@ jobs:
 
 
         
+
+
 
 
 
