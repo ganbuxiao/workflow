@@ -29,6 +29,7 @@ jobs:
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
             SLACK_TITLE: Scan failed -ganbuxiao
             SLACK_MESSAGE: Failed trivy scan, see uploaded report
+            SLACK_COLOR: #DD0044
                
 
     - name: send report       
@@ -40,7 +41,10 @@ jobs:
         file_name: 'trivy-results.txt'
         initial_comment: 'Scan report by ganbuxiao'
 
-        
+    - name: fail
+      run: exit 1
+
+
 
 
     
