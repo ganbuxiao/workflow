@@ -57,7 +57,7 @@ jobs:
 
 
     - name: Sign image with a key
-      run: 
+      run: |
         echo "TAGS: $TAGS"
         echo "DIGEST: $DIGEST"
         cosign sign --yes --key env://COSIGN_PRIVATE_KEY ${TAGS}@${DIGEST}
@@ -68,6 +68,8 @@ jobs:
         DIGEST: ${{ steps.build-and-push.outputs.digest }}
 
         
+
+
 
 
 
