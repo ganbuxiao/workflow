@@ -31,7 +31,7 @@ jobs:
                 Name : WuYuLong
                 Metriculation: A0285956H
                 Email : e1221768@u.nus.edu
-                Git:${{github.repository.repo}}
+                Git: https://github.com/${{ github.repository.owner }}/${{ github.repository.repo }}
                 Docker Hub : https://hub.docker.com/repository/docker/jifenzhongzhiidingli/text/general
 
     - name: Set up QEMU
@@ -52,6 +52,10 @@ jobs:
 
     - name: Install Cosign
       uses: sigstore/cosign-installer@v3.1.1
+      with:
+        cosign-release: 'v2.2.0'
+
+
     - name: Sign image with a key
       run: |
         cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${TAGS}@${DIGEST}"
