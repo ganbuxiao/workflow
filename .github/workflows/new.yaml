@@ -30,6 +30,13 @@ jobs:
             SLACK_TITLE: Scan failed -ganbuxiao
             SLACK_MESSAGE: Failed trivy scan, see uploaded report
             SLACK_COLOR: '#DD0044'
+
+    - name: Debug
+      run: |
+            echo "Slack Token: ${{ secrets.SLACK_TOKEN }}"
+            echo "Slack Channel ID: ${{ secrets.SLACK_CHANNEL_ID }}"
+            echo "File exists: $(if [ -f trivy-results.txt ]; then echo "Yes"; else echo "No"; fi)"
+          
                
 
     - name: send report       
